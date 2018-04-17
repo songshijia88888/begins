@@ -163,7 +163,7 @@ def create_parser(func, env_prefix=None, config_file=None, config_section=None,
     arguments will raise a ValueError exception. A prefix on expected
     environment variables can be added using the env_prefix argument.
     """
-    defaults = DefaultsManager(env_prefix, config_file, func.__name__)
+    defaults = DefaultsManager(env_prefix, config_file, config_section if config_section else func.__name__)
     parser = argparse.ArgumentParser(
             prog=program_name(sys.argv[0], func),
             argument_default=NODEFAULT,
